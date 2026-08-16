@@ -1,0 +1,116 @@
+.hero {
+  padding-top: 2rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 0.85fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(3rem, 8vw, 5rem);
+  line-height: 0.95;
+  margin: 0;
+}
+
+.hero-school {
+  margin: 0.85rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.hero-tagline {
+  margin: 1rem 0 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.hero-description {
+  max-width: 620px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin: 2rem 0 1.5rem;
+}
+
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.25rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  white-space: nowrap;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-button:hover {
+  transform: translateY(-1px);
+}
+
+.hero-button-primary {
+  background: var(--cta-bg);
+  color: var(--cta-text);
+}
+
+.hero-button-primary:hover {
+  background: var(--cta-hover);
+  color: var(--cta-text);
+}
+
+.hero-button-secondary {
+  border: 1px solid var(--border);
+  background: var(--toggle-bg);
+  color: var(--ink);
+}
+
+.hero-button-secondary:hover {
+  border-color: var(--pink-strong);
+  background: var(--toggle-hover-bg);
+  color: var(--ink);
+}
+
+.hero-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.hero-grid--solo {
+  grid-template-columns: 1fr;
+}
+
+.hero-gallery {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.5rem;
+}
+
+.hero-gallery__image {
+  width: min(100%, 14rem);
+  aspect-ratio: 1;
+  border-radius: 999px;
+  object-fit: cover;
+  object-position: left center;
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

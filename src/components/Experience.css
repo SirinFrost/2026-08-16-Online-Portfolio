@@ -1,0 +1,81 @@
+.experience-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.experience-item {
+  padding-bottom: 1.5rem;
+}
+
+.experience-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  align-items: start;
+}
+
+.experience-title {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.experience-logo {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 999px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.experience-company {
+  margin: 0 0 0.25rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.experience-role {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.experience-period {
+  color: var(--muted);
+  font-size: 0.92rem;
+  white-space: nowrap;
+}
+
+.experience-body {
+  padding: 1rem 0 0;
+}
+
+.experience-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.experience-body ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+}
+
+.experience-body li + li {
+  margin-top: 0.55rem;
+}
+
+@media (max-width: 640px) {
+  .experience-heading {
+    flex-direction: column;
+  }
+
+  .experience-period {
+    white-space: normal;
+  }
+}

@@ -1,0 +1,14 @@
+.skills-group + .skills-group {
+  margin-top: 2rem;
+}
+
+.skills-group h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+}
+
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}

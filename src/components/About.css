@@ -1,0 +1,39 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.about-copy {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.about-columns {
+  display: grid;
+  gap: 2rem;
+}
+
+.about-block h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+}
+
+.about-block ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+}
+
+.about-block li + li {
+  margin-top: 0.45rem;
+}
+
+@media (max-width: 820px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

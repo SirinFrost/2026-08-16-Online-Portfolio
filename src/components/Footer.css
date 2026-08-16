@@ -1,0 +1,30 @@
+.footer {
+  padding-bottom: 5.5rem;
+}
+
+.footer-label {
+  margin: 0 0 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.footer-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  margin: 0 0 0.75rem;
+}
+
+.footer-copy {
+  margin: 0;
+  color: var(--muted);
+  max-width: 640px;
+}
+
+.footer-bottom {
+  margin: 2.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
