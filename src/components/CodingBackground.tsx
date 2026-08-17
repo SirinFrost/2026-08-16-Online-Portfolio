@@ -148,7 +148,7 @@ export function CodingBackground() {
       ctx.globalAlpha = 1
     }
 
-    const draw = (timestamp: number) => {
+    const draw = () => {
       const colors = getThemeColors()
 
       ctx.clearRect(0, 0, width, height)
