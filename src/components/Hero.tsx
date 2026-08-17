@@ -1,11 +1,12 @@
 import { heroImages, profile } from '../data/resume'
+import { ScrollPanel } from './ScrollPanel'
 import './Hero.css'
 
 export function Hero() {
   const hasGallery = heroImages.length > 0
 
   return (
-    <section className="hero section">
+    <ScrollPanel className="hero section">
       <div className={`container hero-grid${hasGallery ? '' : ' hero-grid--solo'}`}>
         <div className="hero-copy">
           <h1 className="hero-title">{profile.name}</h1>
@@ -26,7 +27,19 @@ export function Hero() {
             </a>
           </div>
           <div className="hero-meta">
-            <span>Open to co-op, teaching, and tech opportunities</span>
+            <span className="hero-meta__line">
+              <svg
+                className="hero-meta__icon"
+                viewBox="0 0 16 16"
+                aria-hidden="true"
+              >
+                <path
+                  fill="currentColor"
+                  d="M8 0 10 6 16 8 10 10 8 16 6 10 0 8 6 6 8 0Z"
+                />
+              </svg>
+              Open to tech opportunities 2027
+            </span>
           </div>
         </div>
 
@@ -43,6 +56,6 @@ export function Hero() {
           </aside>
         )}
       </div>
-    </section>
+    </ScrollPanel>
   )
 }

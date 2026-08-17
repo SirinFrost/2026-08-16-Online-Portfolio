@@ -8,7 +8,6 @@ type ThemeColors = {
   grid: string
   head: string
   trail: string
-  cursor: string
 }
 
 type Column = {
@@ -27,7 +26,6 @@ function getThemeColors(): ThemeColors {
       grid: 'rgba(100, 149, 237, 0.035)',
       head: 'rgba(120, 180, 255, 1)',
       trail: 'rgba(80, 140, 220, 0.58)',
-      cursor: 'rgba(140, 190, 255, 0.85)',
     }
   }
 
@@ -35,7 +33,6 @@ function getThemeColors(): ThemeColors {
     grid: 'rgba(220, 80, 80, 0.06)',
     head: 'rgba(180, 40, 40, 0.9)',
     trail: 'rgba(220, 70, 70, 0.55)',
-    cursor: 'rgba(160, 35, 35, 0.55)',
   }
 }
 
@@ -81,8 +78,6 @@ export function CodingBackground() {
     let dpr = 1
     let gridOffset = 0
     let columns: Column[] = []
-    let cursorBlink = 1
-    let lastCursorToggle = 0
 
     const resize = () => {
       dpr = Math.min(window.devicePixelRatio || 1, 2)
@@ -153,32 +148,12 @@ export function CodingBackground() {
       ctx.globalAlpha = 1
     }
 
-    const drawCursor = (colors: ThemeColors, timestamp: number) => {
-      if (timestamp - lastCursorToggle > 530) {
-        cursorBlink = cursorBlink === 1 ? 0.15 : 1
-        lastCursorToggle = timestamp
-      }
-
-      const blockX = width * 0.72
-      const blockY = height * 0.18 + Math.sin(timestamp * 0.00035) * 18
-
-      ctx.globalAlpha = 0.35 * cursorBlink
-      ctx.fillStyle = colors.cursor
-      ctx.fillRect(blockX, blockY, 10, lineHeight)
-
-      ctx.globalAlpha = 0.18 * cursorBlink
-      ctx.fillRect(blockX + 14, blockY, 54, lineHeight)
-
-      ctx.globalAlpha = 1
-    }
-
     const draw = (timestamp: number) => {
       const colors = getThemeColors()
 
       ctx.clearRect(0, 0, width, height)
       drawGrid(colors)
       drawColumns(colors)
-      drawCursor(colors, timestamp)
 
       if (!prefersReducedMotion) {
         gridOffset += 0.12

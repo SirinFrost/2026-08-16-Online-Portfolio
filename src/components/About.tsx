@@ -1,8 +1,9 @@
+import { ScrollPanel } from './ScrollPanel'
 import './About.css'
 
 export function About() {
   return (
-    <section id="about" className="section about">
+    <ScrollPanel id="about" className="section about">
       <div className="container">
         <p className="section-label">About</p>
         <h2 className="section-title">
@@ -34,6 +35,6 @@ export function About() {
           </div>
         </div>
       </div>
-    </section>
+    </ScrollPanel>
   )
 }

@@ -7,6 +7,19 @@
   padding-bottom: 1.5rem;
 }
 
+.experience-item:has(+ .experience-item--continued) {
+  padding-bottom: 0.5rem;
+}
+
+.experience-item--continued {
+  margin-top: -1.25rem;
+  padding-bottom: 0;
+}
+
+.experience-item--continued + .experience-item {
+  margin-top: 1rem;
+}
+
 .experience-heading {
   display: flex;
   justify-content: space-between;
@@ -27,6 +40,11 @@
   border-radius: 999px;
   object-fit: cover;
   flex-shrink: 0;
+}
+
+.experience-logo--lg {
+  width: 3.5rem;
+  height: 3.5rem;
 }
 
 .experience-company {
@@ -67,7 +85,7 @@
 }
 
 .experience-body li + li {
-  margin-top: 0.55rem;
+  margin-top: 0.75rem;
 }
 
 @media (max-width: 640px) {

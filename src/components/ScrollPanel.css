@@ -1,0 +1,25 @@
+.scroll-panel {
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  padding: 3rem 0 1.5rem;
+}
+
+.scroll-panel__inner {
+  width: 100%;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-panel__inner {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .scroll-panel {
+    min-height: 75vh;
+    padding: 2.5rem 0 1.25rem;
+  }
+}

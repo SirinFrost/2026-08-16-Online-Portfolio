@@ -18,7 +18,10 @@
   --tag-border: rgba(232, 168, 168, 0.35);
   --highlight-bg: rgba(180, 40, 40, 0.1);
   --highlight-border: rgba(180, 40, 40, 0.34);
+  --highlight-bg-hover: rgba(180, 40, 40, 0.22);
+  --highlight-border-hover: rgba(180, 40, 40, 0.62);
   --highlight-text: #9b3030;
+  --highlight-text-hover: #7a2020;
   font-family: 'Inter', system-ui, sans-serif;
   line-height: 1.6;
   font-weight: 400;
@@ -50,7 +53,10 @@
   --tag-border: rgba(212, 160, 160, 0.25);
   --highlight-bg: rgba(120, 180, 255, 0.12);
   --highlight-border: rgba(120, 180, 255, 0.34);
+  --highlight-bg-hover: rgba(120, 180, 255, 0.26);
+  --highlight-border-hover: rgba(120, 180, 255, 0.62);
   --highlight-text: #9ecaff;
+  --highlight-text-hover: #c8e0ff;
 }
 
 *,
@@ -102,7 +108,7 @@ img {
 }
 
 .section {
-  padding: 6.5rem 0 0;
+  padding: 0;
 }
 
 .section-label {
@@ -119,14 +125,15 @@ img {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(2rem, 4vw, 2.75rem);
   line-height: 1.15;
-  margin: 0 0 1rem;
+  margin: 0 0 1.5rem;
 }
 
 .section-intro {
   max-width: 640px;
   color: var(--muted);
-  margin: 0 0 2rem;
+  margin: 0 0 2.75rem;
   font-size: 1.05rem;
+  line-height: 1.75;
 }
 
 .tag {
@@ -152,10 +159,22 @@ img {
   color: var(--highlight-text);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.highlight:hover {
+  background: var(--highlight-bg-hover);
+  border-color: var(--highlight-border-hover);
+  color: var(--highlight-text-hover);
+  box-shadow: 0 0 0 3px var(--highlight-bg-hover);
 }
 
 @media (max-width: 768px) {
-  .section {
-    padding-top: 5rem;
+  .scroll-panel {
+    padding: 4.5rem 0 3rem;
   }
 }

@@ -23,9 +23,7 @@ export type HeroImage = {
   alt: string 
 }
 
-export const heroImages: HeroImage[] = [
-  { src: '/code-ninjas.png', alt: 'Code Ninjas logo' },
-]
+export const heroImages: HeroImage[] = []
 
 export const skills = {
   software: [
@@ -65,6 +63,8 @@ export type Experience = {
   role: string
   period: string
   logo?: string
+  logoClassName?: string
+  continued?: boolean
   tags: string[]
   highlights: string[]
 }
@@ -73,17 +73,22 @@ export const experience: Experience[] = [
   {
     company: 'Code Ninjas',
     role: 'Coding Instructor',
-    period: 'Present',
+    period: 'July 2026 – Present',
     logo: '/code-ninjas.png',
+    logoClassName: 'experience-logo--lg',
     tags: ['Teaching', 'Programming'],
     highlights: [
-      'Teaching coding to students at Code Ninjas.',
+      'Teaching coding basics to students using scratch code.',
+      'Introduced circuitry and electronics using bitmaker labs.',
+      'Taught students lua programming language to build their own games.',
+      'Guided students through 3d design using Tinkercad as well as 3d terrain and model building in Roblox Studio.',
     ],
   },
   {
     company: 'Envision Robotics',
     role: 'Floor Manager',
     period: 'June 2025 – July 2025',
+    logo: '/envision-robotics.png',
     tags: ['Leadership', 'Camp Operations', 'Student Safety'],
     highlights: [
       'Managed and supervised 30+ students, ensuring student safety on campgrounds.',
@@ -96,6 +101,7 @@ export const experience: Experience[] = [
     company: 'Envision Robotics',
     role: 'Co-op Placement',
     period: 'March 2024 – June 2024',
+    continued: true,
     tags: ['Robotics', 'Lesson Design', 'Student Supervision'],
     highlights: [
       'Helped manage and supervise students during robotics programs.',
@@ -107,6 +113,7 @@ export const experience: Experience[] = [
     company: 'RoboEdu',
     role: 'Programming Instructor',
     period: 'July 2023 – February 2024',
+    logo: '/robo-edu.png',
     tags: ['Python', 'Teaching', 'Curriculum'],
     highlights: [
       'Taught Python to small and large groups of students.',

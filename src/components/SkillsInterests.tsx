@@ -1,9 +1,10 @@
 import { profile, skills } from '../data/resume'
+import { ScrollPanel } from './ScrollPanel'
 import './SkillsInterests.css'
 
 export function SkillsInterests() {
   return (
-    <section id="skills" className="section skills-interests">
+    <ScrollPanel id="skills" className="section skills-interests">
       <div className="container">
         <p className="section-label">Skills & Interests</p>
         <h2 className="section-title">
@@ -33,6 +34,6 @@ export function SkillsInterests() {
           </div>
         </div>
       </div>
-    </section>
+    </ScrollPanel>
   )
 }

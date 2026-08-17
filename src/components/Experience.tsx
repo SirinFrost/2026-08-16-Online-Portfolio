@@ -1,9 +1,10 @@
 import { experience } from '../data/resume'
+import { ScrollPanel } from './ScrollPanel'
 import './Experience.css'
 
 export function Experience() {
   return (
-    <section id="experience" className="section experience">
+    <ScrollPanel id="experience" className="section experience">
       <div className="container">
         <p className="section-label">Experience</p>
         <h2 className="section-title">
@@ -16,14 +17,23 @@ export function Experience() {
 
         <div className="experience-list">
           {experience.map((item) => (
-            <article key={`${item.company}-${item.role}`} className="experience-item">
+            <article
+              key={`${item.company}-${item.role}`}
+              className={['experience-item', item.continued && 'experience-item--continued']
+                .filter(Boolean)
+                .join(' ')}
+            >
               <div className="experience-heading">
                 <div className="experience-title">
-                  {item.logo && (
-                    <img src={item.logo} alt="" className="experience-logo" />
+                  {item.logo && !item.continued && (
+                    <img
+                      src={item.logo}
+                      alt=""
+                      className={['experience-logo', item.logoClassName].filter(Boolean).join(' ')}
+                    />
                   )}
                   <div>
-                    <p className="experience-company">{item.company}</p>
+                    {!item.continued && <p className="experience-company">{item.company}</p>}
                     <h3 className="experience-role">{item.role}</h3>
                   </div>
                 </div>
@@ -48,6 +58,6 @@ export function Experience() {
           ))}
         </div>
       </div>
-    </section>
+    </ScrollPanel>
   )
 }
