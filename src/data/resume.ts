@@ -1,6 +1,6 @@
 export const profile = {
   name: 'Andrew Zhang',
-  brand: 'AndrewZhang.dev',
+  brand: 'AndrewZhang',
   phone: '(647) 482-3915',
   email: 'azworkemail123@gmail.com',
   linkedin: {
