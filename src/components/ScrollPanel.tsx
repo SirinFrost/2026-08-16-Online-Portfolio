@@ -11,12 +11,14 @@ type ScrollPanelProps<T extends ElementType = 'section'> = {
   as?: T
   children: ReactNode
   className?: string
-} & Omit<ComponentPropsWithoutRef<T>, 'as' | 'children' | 'className'>
+  drift?: boolean
+} & Omit<ComponentPropsWithoutRef<T>, 'as' | 'children' | 'className' | 'drift'>
 
 export function ScrollPanel<T extends ElementType = 'section'>({
   as,
   children,
   className = '',
+  drift = true,
   ...rest
 }: ScrollPanelProps<T>) {
   const Component = as ?? 'section'
@@ -26,7 +28,7 @@ export function ScrollPanel<T extends ElementType = 'section'>({
   useEffect(() => {
     const panel = panelRef.current
     const inner = innerRef.current
-    if (!panel || !inner) return
+    if (!drift || !panel || !inner) return
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (reducedMotion) return
@@ -37,13 +39,8 @@ export function ScrollPanel<T extends ElementType = 'section'>({
       frame = 0
       const rect = panel.getBoundingClientRect()
       const viewportHeight = window.innerHeight
-      const panelCenter = rect.top + rect.height * 0.5
-      const viewportCenter = viewportHeight * 0.5
-      const offset = panelCenter - viewportCenter
       const fadeStart = viewportHeight * 0.3
       const fadeEnd = viewportHeight * 0.14
-
-      const translateY = offset * 0.3
 
       let opacity = 1
       if (rect.top <= fadeEnd) {
@@ -55,7 +52,8 @@ export function ScrollPanel<T extends ElementType = 'section'>({
         opacity = 0.12 + 0.88 * progress ** 0.35
       }
 
-      inner.style.transform = `translate3d(0, ${translateY}px, 0)`
+      const offset = rect.top + rect.height * 0.5 - viewportHeight * 0.5
+      inner.style.transform = `translate3d(0, ${offset * 0.3}px, 0)`
       inner.style.opacity = `${opacity}`
     }
 
@@ -74,7 +72,7 @@ export function ScrollPanel<T extends ElementType = 'section'>({
       window.removeEventListener('resize', scheduleUpdate)
       window.cancelAnimationFrame(frame)
     }
-  }, [])
+  }, [drift])
 
   return (
     <Component

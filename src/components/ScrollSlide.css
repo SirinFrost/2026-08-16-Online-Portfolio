@@ -1,0 +1,24 @@
+.scroll-slide {
+  will-change: transform, opacity;
+}
+
+.scramble-readable {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.scramble-char {
+  color: var(--highlight-text);
+  font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-slide {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}

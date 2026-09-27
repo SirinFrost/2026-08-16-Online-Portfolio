@@ -21,8 +21,7 @@
   --highlight-bg-hover: rgba(180, 40, 40, 0.22);
   --highlight-border-hover: rgba(180, 40, 40, 0.62);
   --highlight-text: #9b3030;
-  --highlight-text-hover: #7a2020;
-  font-family: 'Inter', system-ui, sans-serif;
+  --highlight-text-hover: #7a2020;  font-family: 'Inter', system-ui, sans-serif;
   line-height: 1.6;
   font-weight: 400;
   color: var(--ink);
@@ -56,8 +55,7 @@
   --highlight-bg-hover: rgba(120, 180, 255, 0.26);
   --highlight-border-hover: rgba(120, 180, 255, 0.62);
   --highlight-text: #9ecaff;
-  --highlight-text-hover: #c8e0ff;
-}
+  --highlight-text-hover: #c8e0ff;}
 
 *,
 *::before,
