@@ -1,14 +1,18 @@
+import { useRef } from 'react'
 import { heroImages, profile } from '../data/resume'
+import { useTextGlitch } from '../hooks/useTextGlitch'
 import { ScrollPanel } from './ScrollPanel'
 import './Hero.css'
 
 export function Hero() {
   const hasGallery = heroImages.length > 0
+  const copyRef = useRef<HTMLDivElement>(null)
+  useTextGlitch(copyRef)
 
   return (
     <ScrollPanel className="hero section">
       <div className={`container hero-grid${hasGallery ? '' : ' hero-grid--solo'}`}>
-        <div className="hero-copy">
+        <div className="hero-copy" ref={copyRef}>
           <h1 className="hero-title">{profile.name}</h1>
           <p className="hero-school">{profile.school}</p>
           <p className="hero-tagline">{profile.tagline}</p>

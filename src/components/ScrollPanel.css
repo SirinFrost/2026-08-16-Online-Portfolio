@@ -5,6 +5,10 @@
   padding: 3rem 0 1.5rem;
 }
 
+.scroll-panel {
+  overflow-x: clip;
+}
+
 .scroll-panel__inner {
   width: 100%;
   will-change: transform, opacity;

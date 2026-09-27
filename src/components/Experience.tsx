@@ -1,23 +1,27 @@
 import { experience } from '../data/resume'
 import { ScrollPanel } from './ScrollPanel'
+import { ScrollSlide } from './ScrollSlide'
 import './Experience.css'
 
 export function Experience() {
   return (
-    <ScrollPanel id="experience" className="section experience">
+    <ScrollPanel id="experience" className="section experience" drift={false}>
       <div className="container">
-        <p className="section-label">Experience</p>
-        <h2 className="section-title">
-          Places I&apos;ve learned at and <span className="highlight">led</span>
-        </h2>
-        <p className="section-intro">
-          A few of the teams and programs where I&apos;ve built real skills — from robotics camps
-          to Python classrooms and badminton coaching
-        </p>
+        <ScrollSlide>
+          <p className="section-label">Experience</p>
+          <h2 className="section-title">
+            Places I&apos;ve learned at and <span className="highlight">led</span>
+          </h2>
+          <p className="section-intro">
+            A few of the teams and programs where I&apos;ve built real skills — from robotics camps
+            to Python classrooms and badminton coaching
+          </p>
+        </ScrollSlide>
 
         <div className="experience-list">
           {experience.map((item) => (
-            <article
+            <ScrollSlide
+              as="article"
               key={`${item.company}-${item.role}`}
               className={['experience-item', item.continued && 'experience-item--continued']
                 .filter(Boolean)
@@ -54,7 +58,7 @@ export function Experience() {
                   ))}
                 </ul>
               </div>
-            </article>
+            </ScrollSlide>
           ))}
         </div>
       </div>

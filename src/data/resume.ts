@@ -123,8 +123,94 @@ export const experience: Experience[] = [
   },
 ]
 
+export type Project = {
+  name: string
+  period: string
+  url?: string
+  tags: string[]
+  highlights: string[]
+}
+
+export const projects: Project[] = [
+  {
+    name: 'Keyboard Restriction App',
+    period: 'July 2026',
+    tags: ['Python', 'Tkinter', 'Windows Hooks', 'PyInstaller'],
+    highlights: [
+      'Built as an always-on-top overlay for game challenges that globally blocks selected keys.',
+      'Designed toggleable "missions" whose blocked keys combine as a union, so any activation order stays correct.',
+      'Packaged the tool as a standalone Windows executable.',
+    ],
+  },
+  {
+    name: 'Clip-Worthy Finder',
+    period: 'June 2026',
+    url: 'https://github.com/SirinFrost/2026-06-12-Clip-Worthy-Finder',
+    tags: ['Python', 'faster-whisper', 'Ollama', 'FFmpeg', 'FastAPI'],
+    highlights: [
+      'Turns a Twitch VOD into ranked, automatically cut clips of its best moments, fully offline.',
+      'Transcribes with faster-whisper, then has a local LLM score 30-minute blocks of transcript for clip-worthy moments.',
+      'Ships as both a CLI and a drag-and-drop web app with a background job queue and live progress.',
+      'Caches each pipeline stage so reruns only redo the missing work.',
+    ],
+  },
+  {
+    name: 'The Goat',
+    period: 'May 2026 – June 2026',
+    url: 'https://github.com/SirinFrost/2026-05-7-The-Goat',
+    tags: ['Python', 'pygame-ce', 'Game Engine', 'Git Workflow'],
+    highlights: [
+      'Built a 2D ship shooter on a custom component-based engine written in pygame-ce.',
+      'Implemented colliders and physics, a chunked tile world loaded from level files, particles, and audio.',
+      'Added menu, play, shop, and game-over scenes with an upgrade system and enemy spawning.',
+      'Developed through feature branches and 17 merged pull requests.',
+    ],
+  },
+  {
+    name: 'Simple Authentication System',
+    period: 'April 2026 – May 2026',
+    url: 'https://github.com/SirinFrost/2026-04-27-Simple-Authentication-System',
+    tags: ['FastAPI', 'PostgreSQL', 'OAuth 2.0', 'React', 'TypeScript'],
+    highlights: [
+      'Full-stack login system supporting email/password accounts and Google, Facebook, and Microsoft sign-in.',
+      'Hashes passwords with Argon2 and issues JWT access tokens for sessions.',
+      'Built the React frontend with register, login, and protected dashboard pages.',
+    ],
+  },
+  {
+    name: 'YouTube to MP3 / MP4',
+    period: 'April 2026',
+    url: 'https://github.com/SirinFrost/2026-04-24-Youtube-To-Mp4-Mp3',
+    tags: ['React', 'FastAPI', 'yt-dlp', 'FFmpeg'],
+    highlights: [
+      'Web app that converts a YouTube link into a downloadable MP3 or MP4.',
+      'FastAPI backend handles downloading, merging, and audio encoding, with a health check for FFmpeg.',
+    ],
+  },
+  {
+    name: 'Reel Summarization',
+    period: 'April 2026',
+    url: 'https://github.com/SirinFrost/2026-04-22-Reel-Summarization',
+    tags: ['React', 'TypeScript', 'FastAPI', 'faster-whisper', 'Ollama'],
+    highlights: [
+      'Turns short videos into a transcript and a summary using speech-to-text and a local LLM.',
+      'Accepts file uploads or public Instagram, YouTube, and TikTok links.',
+    ],
+  },
+  {
+    name: 'Reel Extraction Pipeline',
+    period: 'January 2026',
+    tags: ['Python', 'Playwright', 'Ollama', 'YAML'],
+    highlights: [
+      'Scrapes Instagram Reels with Playwright and runs two LLM passes to segment transcripts and classify their hooks.',
+      'Classifies hooks against a custom taxonomy of engagement patterns such as curiosity gaps and pattern interrupts.',
+    ],
+  },
+]
+
 export const navLinks = [
   { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
   { id: 'about', label: 'About' },
 ]
