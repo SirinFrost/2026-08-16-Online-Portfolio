@@ -5,7 +5,7 @@ import {
   type ElementType,
   type ReactNode,
 } from 'react'
-import { applyScramble, collectScrambleNodes, startGlitchLoop } from './textScramble'
+import { applyScramble, collectScrambleNodes } from './textScramble'
 import './ScrollSlide.css'
 
 type ScrollSlideProps<T extends ElementType = 'div'> = {
@@ -55,12 +55,6 @@ export function ScrollSlide<T extends ElementType = 'div'>({
         ticker = 0
       }
     }
-
-    const stopGlitch = startGlitchLoop(
-      scrambleNodes,
-      () => onScreen && scrambleAmount === 0,
-      render,
-    )
 
     const getPanelOpacity = (viewportHeight: number) => {
       if (!panel) return 0
@@ -119,7 +113,6 @@ export function ScrollSlide<T extends ElementType = 'div'>({
       window.removeEventListener('resize', scheduleUpdate)
       window.cancelAnimationFrame(frame)
       setTicking(false)
-      stopGlitch()
       applyScramble(scrambleNodes, 0)
     }
   }, [])

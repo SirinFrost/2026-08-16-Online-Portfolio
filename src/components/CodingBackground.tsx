@@ -79,10 +79,13 @@ export function CodingBackground() {
     let gridOffset = 0
     let columns: Column[] = []
 
+    const container = canvas.parentElement ?? canvas
+    let visible = true
+
     const resize = () => {
       dpr = Math.min(window.devicePixelRatio || 1, 2)
-      width = window.innerWidth
-      height = window.innerHeight
+      width = container.clientWidth
+      height = container.clientHeight
       canvas.width = Math.floor(width * dpr)
       canvas.height = Math.floor(height * dpr)
       canvas.style.width = `${width}px`
@@ -155,15 +158,27 @@ export function CodingBackground() {
       drawGrid(colors)
       drawColumns(colors)
 
-      if (!prefersReducedMotion) {
+      if (!prefersReducedMotion && visible) {
         gridOffset += 0.12
         animationId = requestAnimationFrame(draw)
       }
     }
 
     resize()
-    window.addEventListener('resize', resize)
+    const resizeObserver = new ResizeObserver(resize)
+    resizeObserver.observe(container)
     animationId = requestAnimationFrame(draw)
+
+    // Pause the animation while the hero is scrolled out of view.
+    const visibilityObserver = new IntersectionObserver(([entry]) => {
+      const wasVisible = visible
+      visible = entry.isIntersecting
+      if (visible && !wasVisible && !prefersReducedMotion) {
+        cancelAnimationFrame(animationId)
+        animationId = requestAnimationFrame(draw)
+      }
+    })
+    visibilityObserver.observe(container)
 
     const themeObserver = new MutationObserver(() => {
       if (prefersReducedMotion) {
@@ -178,7 +193,8 @@ export function CodingBackground() {
 
     return () => {
       cancelAnimationFrame(animationId)
-      window.removeEventListener('resize', resize)
+      resizeObserver.disconnect()
+      visibilityObserver.disconnect()
       themeObserver.disconnect()
     }
   }, [])
