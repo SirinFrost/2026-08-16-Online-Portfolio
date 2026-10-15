@@ -1,4 +1,10 @@
+.hero-wrap {
+  position: relative;
+}
+
 .scroll-panel.hero {
+  position: relative;
+  z-index: 1;
   min-height: 62vh;
   padding-bottom: 0;
 }
